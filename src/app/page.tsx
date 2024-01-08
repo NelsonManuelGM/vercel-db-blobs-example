@@ -1,12 +1,7 @@
-"use client";
-
-import { TextField } from "@mui/material/index";
-import ImageUploader from "../components/image-uploader";
-import { useState } from "react";
+import { PutBlobResult } from "@vercel/blob";
+import FormExample from "../components/form-example";
 
 export default function HomePage() {
-  const [image, setImage] = useState("");
-
   return (
     <main
       style={{
@@ -17,23 +12,7 @@ export default function HomePage() {
         transform: "translate(-50%, -50%)",
       }}
     >
-      <form>
-        <div>
-          <label htmlFor="firstName">First name</label>
-          <TextField
-            name="firstName"
-            id="firstName"
-            placeholder="First name"
-            variant="outlined"
-            fullWidth
-            size="small"
-            required
-          />
-        </div>
-        <div>
-          <ImageUploader image={image} setImage={setImage} />
-        </div>
-      </form>
+      <FormExample />
     </main>
   );
 }

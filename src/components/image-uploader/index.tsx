@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { ImageUploaderWrapper } from "./styles";
 import { Button } from "@mui/material";
 import { Add, Delete } from "@mui/icons-material";
@@ -8,9 +7,11 @@ import { Add, Delete } from "@mui/icons-material";
 export default function ImageUploader({
   image,
   setImage,
+  setImgFile,
 }: {
   image: string;
   setImage: (image: string) => void;
+  setImgFile: (file: File | null) => void;
 }) {
   const onButtonClick = (e: React.MouseEvent<HTMLLabelElement>) => {
     if (image && image.length > 0) {
@@ -28,6 +29,7 @@ export default function ImageUploader({
 
       reader.onload = (e: any) => {
         setImage(e.target.result);
+        setImgFile(file[0]);
       };
     }
   };
